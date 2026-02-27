@@ -14,7 +14,7 @@ async function bootstrap() {
     mkdirSync(uploadPath);
   }
 
-  app.use('/uploads', express.static(uploadPath));
+  app.use('/uploads', express.static(join(process.cwd(), 'uploads')));
 
   /* ---------------- GLOBAL VALIDATION ---------------- */
   app.useGlobalPipes(

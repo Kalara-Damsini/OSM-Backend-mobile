@@ -20,6 +20,11 @@ export class UsersService {
   }
 
   async findById(id: string) {
-    return this.repo.findOneByOrFail({ id });
+    return this.repo.findOne({ where: { id } });
+  }
+
+  async updateMe(userId: string, data: Partial<User>) {
+    await this.repo.update({ id: userId }, data);
+    return this.findById(userId);
   }
 }
