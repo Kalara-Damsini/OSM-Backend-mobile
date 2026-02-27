@@ -18,4 +18,8 @@ export class UsersService {
     const user = this.repo.create(data);
     return this.repo.save(user);
   }
+
+  async findById(id: string) {
+    return this.repo.findOneByOrFail({ id });
+  }
 }
